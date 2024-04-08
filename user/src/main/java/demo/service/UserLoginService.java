@@ -10,8 +10,22 @@ import demo.util.JsonData;
 public interface UserLoginService {
     /**
      * 用户登录
-     * @param userLoginRequest
+     * @param userLoginRequest userLoginRequest
      * @return JsonData
      */
-    JsonData login(UserLoginRequest userLoginRequest);
+    JsonData loginByAccount(UserLoginRequest userLoginRequest);
+
+    /**
+     * 用户登录
+     * @param userLoginRequest userLoginRequest
+     * @return JsonData
+     */
+    JsonData loginByGitHub(UserLoginRequest userLoginRequest);
+
+    /**
+     * 用户登录
+     * @param userLoginRequest userLoginRequest
+     * @return JsonData
+     */
+    JsonData loginByLdap(UserLoginRequest userLoginRequest);
 }
