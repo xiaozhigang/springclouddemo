@@ -12,6 +12,7 @@ import demo.util.JsonData;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
  * @author xiao
  * @data 2024/4/7 23:28
  */
+@Service
 public class UserLoginServiceImpl implements UserLoginService {
     @Autowired
     private UserMapper userMapper;

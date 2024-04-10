@@ -33,12 +33,12 @@ public class UserDO implements Serializable {
     private String pwd;
 
     /**
-     * 角色
-     */
-    private String role;
-
-    /**
      * 盐，用于个人敏感信息处理
      */
     private String secret;
+
+    /**
+     * 角色
+     */
+    private int role;
 }

@@ -48,7 +48,7 @@ public class JWTUtil {
                 .claim("id", user.getId())
                 .claim("name", user.getName())
                 .setIssuedAt(new Date())
-                .signWith(SignatureAlgorithm.ES256, SECRET).compact();
+                .signWith(SignatureAlgorithm.HS256, SECRET).compact();
         return TOKEN_PREFIX + token;
     }
 

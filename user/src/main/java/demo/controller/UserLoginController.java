@@ -7,10 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author xiao
@@ -48,5 +45,14 @@ public class UserLoginController {
     @PostMapping("loginByLdap")
     public JsonData loginByLdap(@ApiParam("用户登录对象") @RequestBody UserLoginRequest userLoginRequest) {
         return userLoginService.loginByLdap(userLoginRequest);
+    }
+
+    /**
+     * 用户登录
+     */
+    @ApiOperation("健康检测")
+    @GetMapping("health")
+    public JsonData health() {
+        return JsonData.buildSuccess();
     }
 }

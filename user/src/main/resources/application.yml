@@ -1,16 +1,21 @@
 server:
-  port: 9001
+  port: 9010
 
 spring:
   application:
     name: demo-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.3.218:8848
 
   #数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: 123456
+#    password: root
 
 #配置plus打印sql日志
 mybatis-plus:
