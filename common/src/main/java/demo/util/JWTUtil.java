@@ -47,6 +47,7 @@ public class JWTUtil {
         String token = Jwts.builder().setSubject(SUBJECT)
                 .claim("id", user.getId())
                 .claim("name", user.getName())
+                .claim("role", user.getRole())
                 .setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS256, SECRET).compact();
         return TOKEN_PREFIX + token;

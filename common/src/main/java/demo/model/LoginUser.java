@@ -23,4 +23,9 @@ public class LoginUser {
      * 名称
      */
     private String name;
+
+    /**
+     * 角色
+     */
+    private int role;
 }

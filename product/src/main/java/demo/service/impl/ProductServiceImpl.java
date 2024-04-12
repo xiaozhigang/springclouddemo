@@ -8,6 +8,7 @@ import demo.request.ProductRequest;
 import demo.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -26,32 +27,36 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper;
 
     @Override
-    public Map<String,Object> findProduct(int page, int size) {
+    public Map<String, Object> findProduct(int page, int size) {
         Page<ProductDO> pageInfo = new Page<>(page, size);
         Page<ProductDO> productDOPage = productMapper.selectPage(pageInfo, null);
 
-        Map<String,Object> pageMap = new HashMap<>(3);
+        Map<String, Object> pageMap = new HashMap<>(3);
 
-        pageMap.put("total_record",productDOPage.getTotal());
-        pageMap.put("total_page",productDOPage.getPages());
-        pageMap.put("current_data",productDOPage.getRecords());
+        pageMap.put("total_record", productDOPage.getTotal());
+        pageMap.put("total_page", productDOPage.getPages());
+        pageMap.put("current_data", productDOPage.getRecords());
 
         return pageMap;
     }
 
     @Override
     public int insertProduct(ProductRequest productRequest) {
-        return 0;
+        ProductDO productDO = new ProductDO();
+        BeanUtils.copyProperties(productRequest, productDO);
+        return productMapper.insert(productDO);
     }
 
     @Override
     public int deleteProduct(ProductRequest productRequest) {
-        return 0;
+        return productMapper.deleteById(productRequest.getId());
     }
 
     @Override
     public int updateProduct(ProductRequest productRequest) {
-        return 0;
+        ProductDO productDO = new ProductDO();
+        BeanUtils.copyProperties(productRequest, productDO);
+        return productMapper.updateById(productDO);
     }
 
 }

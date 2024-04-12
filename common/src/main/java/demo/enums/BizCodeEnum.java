@@ -14,7 +14,9 @@ public enum BizCodeEnum {
      * 账号
      */
     ACCOUNT_UNREGISTER(250002,"账号不存在"),
-    ACCOUNT_PWD_ERROR(250003, "账号或者密码错误");
+    ACCOUNT_PWD_ERROR(250003, "账号或者密码错误"),
+
+    ACCOUNT_NO_AUTHORITY(250004, "无权限");
 
 
     @Getter

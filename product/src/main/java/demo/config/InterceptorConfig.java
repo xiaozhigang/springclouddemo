@@ -14,9 +14,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Slf4j
 public class InterceptorConfig implements WebMvcConfigurer {
     @Override
-    public void addInterceptors(InterceptorRegistry registry){
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/api/user/*/**","/api/product/*/**")
-                .excludePathPatterns("/api/user/*/loginByAccount", "/api/user/*/loginByGitHub", "/api/user/*/loginByLdap", "/api/user/*/health");
+                .addPathPatterns("/api/user/*/**", "/api/product/*/**")
+                .excludePathPatterns("/api/product/*/page", "/api/product/*/insert", "/api/product/*/delete", "/api/product/*/update", "/api/product/*/health");
     }
 }
